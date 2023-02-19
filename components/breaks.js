@@ -1,14 +1,14 @@
 
 import journalImage from '../assets/breathing.jpg';
-import meditateImage from '..assets/meditation.jpg'
-import drawingImage from '..assets/painting.jpg'
-import cloudImage from '..assets/clouds.jpg'
-import dancingImage from '..assets/dancing.jpg'
-import breathingImage from '..assets/breathing.jpg'
-import walkingImage from '..assets/walking.jpg'
-import fruitImage from '..assets/peaches.jpg'
-import stretchingImage from '..assets/stretch.jpg'
-import phoneImage from '..assets/phone.jpg'
+import meditateImage from '../assets/meditation.jpg'
+import drawingImage from '../assets/painting.jpg'
+import cloudImage from '../assets/clouds.jpg'
+import dancingImage from '../assets/dancing.jpg'
+import breathingImage from '../assets/breathing.jpg'
+import walkingImage from '../assets/walking.jpg'
+import fruitImage from '../assets/peaches.jpg'
+import stretchingImage from '../assets/stretch.jpg'
+import phoneImage from '../assets/phone.jpg'
 
 /*
 Brain breaks!
@@ -36,10 +36,6 @@ const breaks = [
     {activity:"Stretch it out!", image:{stretchingImage}},
     {activity:"Call a friend!", image:{phoneImage}}
 ];
-
-const getRandom = () => {
-    return breaks[Math.random() * breaks.length];
-}
     
 
 module.exports = { breaks }
