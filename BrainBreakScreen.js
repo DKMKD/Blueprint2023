@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Text, View, Image, ImageBackground, Alert } from 'react-native'
+import { Text, View, Image, ImageBackground, Alert, Pressable } from 'react-native'
 import journalImage from './assets/breathing.png';
 import meditateImage from './assets/meditation.png'
 import drawingImage from './assets/painting.png'
@@ -45,14 +45,22 @@ const getRandom = () => {
 }
 
 const formatNumber = number => `0${number}`.slice(-2);
-const activity = getRandom()
+let activity = getRandom()
 
 const BrainBreakScreen = ({navigation, route}) => {
 
     const [ seconds, setSeconds ] = useState(60)
+    const [ isActivitySet, setIsActivitySet ] = useState(false)
 
+    if (!isActivitySet) {
+      setIsActivitySet(true)
+      activity = getRandom()
+    }
 
     function callback() {
+      if (seconds == 0) {
+        return
+      }
       setSeconds(seconds - 1)
       if (seconds == 0) {
         Alert.alert("Brain break over!", "Hopefully you feel more relaxed.")
@@ -68,7 +76,7 @@ const BrainBreakScreen = ({navigation, route}) => {
           <Image 
             style={styles.breakImage}
             source={activity.image}/>
-          <Text style={styles.breakTimer}>{formatNumber(Math.floor(seconds / 60))}:{formatNumber(seconds % 60)} remaining</Text>
+          <Text style={styles.breakText}>{formatNumber(Math.floor(seconds / 60))}:{formatNumber(seconds % 60)} remaining</Text>
         </ImageBackground>
       </View>
     )
