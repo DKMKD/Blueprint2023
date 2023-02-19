@@ -67,6 +67,17 @@ const styles = StyleSheet.create({
     background: {
         height: '100%',
         width: '100%',
+    },
+    quote: {
+        padding: 5,
+        marginTop: 450,
+        marginLeft: 5,
+        marginRight: 5,
+        backgroundColor: '#FFF',
+        fontSize: 35,
+        borderRadius: 10,
+        borderWidth: 2,
+        borderColor: '#999'
     }
 })
 

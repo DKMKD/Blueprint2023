@@ -35,6 +35,18 @@ const App = () => {
   );
 }
 
+const quotes = [
+  {quote:"\“All our dreams can come true, if we have the courage to pursue them.\” —Walt Disney"},
+  {quote:"\“The secret of getting ahead is getting started.\” —Mark Twain"},
+  {quote:"\“The best time to plant a tree was 20 years ago. The second best time is now.\” ―Chinese Proverb"},
+  {quote:"\“It’s hard to beat a person who never gives up.\” —Babe Ruth"},
+  {quote:"\“If people are doubting how far you can go, go so far that you can’t hear them anymore.\” —Michele Ruiz"},
+];
+
+const getRandomQuote = () => {
+  return quotes[~~(Math.random() * quotes.length)]
+}
+
 const HomeScreen = ({navigation, route}) => {
   return (
     <View style={styles.container}>
@@ -60,6 +72,7 @@ const HomeScreen = ({navigation, route}) => {
             await schedulePushNotification("Test", "Testing123")
           }}
         /> */}
+        <Text style={styles.quote}>{getRandomQuote().quote}</Text>
       </ImageBackground>
     </View>
   )
