@@ -9,7 +9,6 @@ const styles = StyleSheet.create({
         justifyContent:'center'
     },
     image: {
-        margin: auto,
         resizemode: 'contain',
         height: 350,
         width: 350
