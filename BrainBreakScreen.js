@@ -10,7 +10,7 @@ import walkingImage from './assets/walking.png'
 import fruitImage from './assets/peaches.png'
 import stretchingImage from './assets/stretch.png'
 import phoneImage from './assets/phone.png'
-import styles from './styles'
+import { styles } from './styles'
 import riverImage from './assets/rivers.jpg';
 
 /*
@@ -47,13 +47,15 @@ const getRandom = () => {
 const BrainBreakScreen = ({navigation, route}) => {
    const random = getRandom();
     return (
-      <View>
+      <View style={styles.container}>
         <ImageBackground source={riverImage} resizeMode="stretch" style={styles.background}>
-          <Text>{random["activity"]}</Text>
+          <Text style={styles.breakText}>
+              {random["activity"]}
+          </Text>
           <Image 
             style={styles.breakImage}
             source={random["image"]}/>
-        </ImageBackground>
+          </ImageBackground>
       </View>
     )
   }

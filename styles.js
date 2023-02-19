@@ -13,19 +13,32 @@ const styles = StyleSheet.create({
     },
     breakText: {
         textAlign: 'center',
-        marginTop: 15,
+        padding: 5,
+        marginTop: 50,
+        marginLeft: 5,
+        marginRight: 5,
+        backgroundColor: '#FFF',
         fontSize: 50,
-        fontWeight: "bold"
+        fontWeight: "bold",
+        borderRadius: 10,
+        borderWidth: 2,
+        borderColor: '#999'
     },
     breakImage: {
+        resizeMode: 'contain',
         marginLeft: 'auto',
         marginRight: 'auto',
-        marginTop: 15,
+        marginTop: 25,
+        height: 350,
+        width: 350,
+        borderRadius:10,
+        borderWidth: 1,
+        borderColor: '#fff'
     },
     button: {
         marginRight:40,
         marginLeft:40,
-       marginTop:10,
+        marginTop:10,
         paddingTop:10,
         paddingBottom:10,
         backgroundColor:'#000',
@@ -37,14 +50,6 @@ const styles = StyleSheet.create({
         textAlign: 'center', 
         color: '#fff', 
         fontSize: 24,
-    },
-    image: {
-        resizemode: 'contain',
-        borderStyle: "solid",
-        borderColor: "black",
-        borderWidth: 5,
-        height: 350,
-        width: 350
     },
     background: {
         height: '100%',
