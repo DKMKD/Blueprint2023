@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import {Pressable, View, Text} from "react-native"
 import DateTimePicker from '@react-native-community/datetimepicker';
 import {styles} from './styles'
+import treeImage from './assets/trees.jpg'
 
 const ScheduleScreen = ({navigation, route}) => {
     const [pushNotificationToken, setPushNotificationToken] = useState('')
@@ -25,24 +26,26 @@ const ScheduleScreen = ({navigation, route}) => {
 
     return (
       <View style={{textAlign: 'center', justifyContent: 'center', flex: 1}}>
-        <Text style={{fontSize: 24, textAlign: 'center'}}>Choose a time to be notified to remind you to take a brain break!</Text>
-        <DateTimePicker textColor="black"
-          modal
-          mode="datetime"
-          display="spinner"
-          value={date}
-          onChange={(event, date) => {
-            setDate(date)
+        <ImageBackground source={treeImage} resizeMode="stretch" style={styles.background}>
+          <Text style={{fontSize: 24, textAlign: 'center'}}>Choose a time to be notified to remind you to take a brain break!</Text>
+          <DateTimePicker textColor="black"
+            modal
+            mode="datetime"
+            display="spinner"
+            value={date}
+            onChange={(event, date) => {
+              setDate(date)
+            }}
+          />
+          <Pressable 
+          style={styles.button}
+          onPress={async () => {
+              await schedulePushNotification('[Take 5]', "It's time to take a brain break.")
           }}
-        />
-        <Pressable 
-        style={styles.button}
-        onPress={async () => {
-            await schedulePushNotification('[Take 5]', "It's time to take a brain break.")
-        }}
-        >
-          <Text style={styles.buttonText}>Schedule</Text>
-        </Pressable>
+          >
+            <Text style={styles.buttonText}>Schedule</Text>
+          </Pressable>
+        </ImageBackground>
       </View>
     )
   }
