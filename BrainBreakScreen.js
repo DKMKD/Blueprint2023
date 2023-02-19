@@ -1,6 +1,5 @@
 import React from 'react'
 import { Text, View, Image } from 'react-native'
-import "./styles.css";
 import journalImage from './assets/breathing.jpg';
 import meditateImage from './assets/meditation.jpg'
 import drawingImage from './assets/painting.jpg'
@@ -11,6 +10,7 @@ import walkingImage from './assets/walking.jpg'
 import fruitImage from './assets/peaches.jpg'
 import stretchingImage from './assets/stretch.jpg'
 import phoneImage from './assets/phone.jpg'
+import styles from './styles'
 
 /*
 Brain breaks!

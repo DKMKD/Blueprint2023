@@ -1,12 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Text, View, Button } from 'react-native';
+import { Text, View, Button, ImageBackground } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import "./styles.css";
 import BrainBreakScreen from './BrainBreakScreen';
 import ScheduleScreen from './ScheduleScreen'
 import * as Notifications from 'expo-notifications'
 import * as Device from 'expo-device'
+import { styles } from './styles'
+import butterflyImage from './assets/butterflies.jpg'
 
 const Stack = createNativeStackNavigator()
 
@@ -63,24 +64,26 @@ const App = () => {
 const HomeScreen = ({navigation, route}) => {
   return (
     <View style={styles.container}>
-      <Button
-      title="Go to Schedule Screen"
-      onPress={() => {
-        navigation.navigate('Schedule')
-      }}
-      />
-      <Button
-      title="Go to Brain Break Screen"
-      onPress={() => {
-        navigation.navigate('BrainBreak')
-      }}
-      />
-      <Button
-        title="Test Notification"
-        onPress={async () => {
-          await schedulePushNotification("Test", "Testing123")
+      <ImageBackground source={butterflyImage} resizeMode="stretch" style={styles.background}>
+        <Button
+        title="Go to Schedule Screen"
+        onPress={() => {
+          navigation.navigate('Schedule')
         }}
-      />
+        />
+        <Button
+        title="Go to Brain Break Screen"
+        onPress={() => {
+          navigation.navigate('BrainBreak')
+        }}
+        />
+        <Button
+          title="Test Notification"
+          onPress={async () => {
+            await schedulePushNotification("Test", "Testing123")
+          }}
+        />
+      </ImageBackground>
     </View>
   )
 }
