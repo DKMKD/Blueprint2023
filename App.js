@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Text, View, Button, ImageBackground } from 'react-native';
+import { Text, View, Pressable, ImageBackground } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import BrainBreakScreen from './BrainBreakScreen';
@@ -20,30 +20,14 @@ Notifications.setNotificationHandler({
 })
 
 const App = () => {
-  const [pushNotificationToken, setPushNotificationToken] = useState('')
-  const [isNotifying, setNotifying] = useState(false)
-  const notificationListener = useRef()
-  const responseListener = useRef()
-  useEffect(() => {
-    registerForPushNotificationsAsync().then(token => setPushNotificationToken(token))
-    notificationListener.current = Notifications.addNotificationReceivedListener(notificationListener => {
-      //setNotifying(notificationListener)
-      console.log('received')
-    })
-
-    responseListener.current = Notifications.addNotificationResponseReceivedListener(response => console.log(response))
-    return () => {
-      Notifications.removeNotificationSubscription(notificationListener.current)
-      Notifications.removeNotificationSubscription(responseListener.current)
-    }
-  }, [])
+  
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
+    <NavigationContainer style={{backgroundColor: '#5d883f'}}>
+      <Stack.Navigator style={{backgroundColor: '#5d883f'}}>
         <Stack.Screen
           name="Home"
           component={HomeScreen}
-          options={{title: 'Take 5'}} 
+          options={{title: 'Take 5', backgroundColor: '#5d883f'}} 
         />
         <Stack.Screen
           name="Schedule"
@@ -65,66 +49,30 @@ const HomeScreen = ({navigation, route}) => {
   return (
     <View style={styles.container}>
       <ImageBackground source={butterflyImage} resizeMode="stretch" style={styles.background}>
-        <Button
-        title="Go to Schedule Screen"
+        <Pressable
+        style={styles.button}
         onPress={() => {
           navigation.navigate('Schedule')
-        }}
-        />
-        <Button
-        title="Go to Brain Break Screen"
+        }}>
+        <Text style={styles.buttonText}>Schedule a Brain Break</Text>
+
+        </Pressable>
+        <Pressable
+        style={styles.button}
         onPress={() => {
           navigation.navigate('BrainBreak')
-        }}
-        />
-        <Button
+        }}>
+          <Text style={styles.buttonText}>Take a Brain Break</Text>
+        </Pressable>
+        {/* <Button
           title="Test Notification"
           onPress={async () => {
             await schedulePushNotification("Test", "Testing123")
           }}
-        />
+        /> */}
       </ImageBackground>
     </View>
   )
-}
-
-async function schedulePushNotification(title, body) {
-  await Notifications.scheduleNotificationAsync({
-    content: {
-      title: title,
-      body: body,
-      data: {breakTime: true},
-    },
-    trigger: { seconds: 2 },
-  });
-}
-
-// Function taken and modified from Expo Docs
-async function registerForPushNotificationsAsync() {
-  let token;
-
-  if (Platform.OS === 'android') {
-    await Notifications.setNotificationChannelAsync('default', {
-      name: 'default',
-      importance: Notifications.AndroidImportance.MAX,
-      vibrationPattern: [0, 250, 250, 250],
-      lightColor: '#FF231F7C',
-    });
-  }
-  if (!Device.isDevice) return;
-  const { status: existingStatus } = await Notifications.getPermissionsAsync();
-  let finalStatus = existingStatus;
-  if (existingStatus !== 'granted') {
-    const { status } = await Notifications.requestPermissionsAsync();
-    finalStatus = status;
-  }
-  if (finalStatus !== 'granted') {
-    alert('Failed to get push token for push notification!');
-    return;
-  }
-  console.log('Notification token granted')
-  token = (await Notifications.getExpoPushTokenAsync()).data;
-  return token;
 }
 
 export default App;

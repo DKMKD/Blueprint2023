@@ -1,9 +1,7 @@
 import { StyleSheet, Dimensions } from 'react-native';
 
-const windowDimension =  Dimensions.get('window')
-const screenHeight = windowDimension.height
-const screenWidth = windowDimension.width
-console.log(`Height=${screenHeight} width=${screenWidth}`)
+const screenHeight = Dimensions.get("window").height;
+const screenWidth = Dimensions.get("window").width
 
 const styles = StyleSheet.create({
     title: {
@@ -23,6 +21,24 @@ const styles = StyleSheet.create({
         marginLeft: 'auto',
         marginRight: 'auto',
         marginTop: 15,
+    },
+    button: {
+        marginRight:40,
+        marginLeft:40,
+       marginTop:10,
+        paddingTop:10,
+        paddingBottom:10,
+        backgroundColor:'#000',
+        borderRadius:10,
+        borderWidth: 1,
+        borderColor: '#fff'
+    },
+    buttonText: {
+        textAlign: 'center', 
+        color: '#fff', 
+        fontSize: 24,
+    },
+    image: {
         resizemode: 'contain',
         borderStyle: "solid",
         borderColor: "black",

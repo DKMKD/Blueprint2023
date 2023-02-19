@@ -1,16 +1,17 @@
 import React from 'react'
-import { Text, View, Image } from 'react-native'
-import journalImage from './assets/breathing.jpg';
-import meditateImage from './assets/meditation.jpg'
-import drawingImage from './assets/painting.jpg'
-import cloudImage from './assets/clouds.jpg'
-import dancingImage from './assets/dancing.jpg'
-import breathingImage from './assets/breathing.jpg'
-import walkingImage from './assets/walking.jpg'
-import fruitImage from './assets/peaches.jpg'
-import stretchingImage from './assets/stretch.jpg'
-import phoneImage from './assets/phone.jpg'
-import { styles } from './styles'
+import { Text, View, Image, ImageBackground } from 'react-native'
+import journalImage from './assets/breathing.png';
+import meditateImage from './assets/meditation.png'
+import drawingImage from './assets/painting.png'
+import cloudImage from './assets/clouds.png'
+import dancingImage from './assets/dancing.png'
+import breathingImage from './assets/breathing.png'
+import walkingImage from './assets/walking.png'
+import fruitImage from './assets/peaches.png'
+import stretchingImage from './assets/stretch.png'
+import phoneImage from './assets/phone.png'
+import styles from './styles'
+import riverImage from './assets/rivers.jpg';
 
 /*
 Brain breaks!
@@ -47,10 +48,12 @@ const BrainBreakScreen = ({navigation, route}) => {
    const random = getRandom();
     return (
       <View>
-        <Text style={styles.breakText}>{random["activity"]}</Text>
-        <Image 
-          style={styles.breakImage}
-          source={random["image"]}/>
+        <ImageBackground source={riverImage} resizeMode="stretch" style={styles.background}>
+          <Text>{random["activity"]}</Text>
+          <Image 
+            style={styles.breakImage}
+            source={random["image"]}/>
+        </ImageBackground>
       </View>
     )
   }
