@@ -2,6 +2,7 @@
   "expo": {
     "name": "brain-break",
     "slug": "brain-break",
+    "icon": "./assets/logo.jpg",
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
