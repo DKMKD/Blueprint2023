@@ -6,7 +6,7 @@ const screenWidth = windowDimension.width
 console.log(`Height=${screenHeight} width=${screenWidth}`)
 
 const styles = StyleSheet.create({
-    container: {
+    title: {
         flex: 1,
         padding: 24,
         backgroundColor: '#5d883f',
