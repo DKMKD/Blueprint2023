@@ -1,5 +1,5 @@
 {
-  "name": "brain-break",
+  "name": "take-5",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -14,8 +14,11 @@
     "@react-navigation/native": "^6.1.4",
     "@react-navigation/native-stack": "^6.9.10",
     "expo": "~47.0.12",
+    "expo-device": "^5.0.0",
+    "expo-notifications": "~0.17.0",
     "expo-splash-screen": "~0.17.5",
     "expo-status-bar": "~1.4.2",
+    "native-notify": "^3.0.4",
     "react": "18.1.0",
     "react-native": "0.70.5",
     "react-native-date-picker": "^4.2.8",
