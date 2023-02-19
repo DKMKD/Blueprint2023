@@ -62,7 +62,7 @@ const App = () => {
 
 const HomeScreen = ({navigation, route}) => {
   return (
-    <View style={styles.container}>
+    <View style={styles.title}>
       <Button
       title="Go to Schedule Screen"
       onPress={() => {
