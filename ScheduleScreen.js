@@ -1,28 +1,24 @@
-import React from "react"
+import React, { useState } from "react"
+import {Button, View} from "react-native"
 import DateTimePicker from '@react-native-community/datetimepicker';
 
 
 const ScheduleScreen = ({navigation, route}) => {
 
-    const [date, setDate] = useState(Date.now())
-    const [open, setOpen] = useState(false)
-  
+    const [date, setDate] = useState(new Date())
+
     return (
-      <>
-        <Button title="Open" onPress={() => setOpen(true)} />
-        <DateTimePicker
+      <View>
+        <DateTimePicker textColor="black"
           modal
-          open={open}
-          date={date}
-          onConfirm={(date) => {
-            setOpen(false)
+          mode="datetime"
+          display="spinner"
+          value={date}
+          onChange={(event, date) => {
             setDate(date)
           }}
-          onCancel={() => {
-            setOpen(false)
-          }}
         />
-      </>
+      </View>
     )
   }
 
