@@ -35,8 +35,8 @@ const ScheduleScreen = ({navigation, route}) => {
     return (
       <View style={{textAlign: 'center', justifyContent: 'center', flex: 1}}>
         <ImageBackground source={treeImage} resizeMode="stretch" style={styles.background}>
-          <Text style={{fontSize: 24, textAlign: 'center'}}>Choose a time to be notified to remind you to take a brain break!</Text>
-          <DateTimePicker textColor="black"
+          <Text style={{fontSize: 24, textAlign: 'center', backgroundColor:'#fff', textColor:'#000' }}>Choose a time to be notified to remind you to take a brain break!</Text>
+          <DateTimePicker textColor="black" style={{backgroundColor:"#fff"}}
             modal
             mode="datetime"
             display="spinner"

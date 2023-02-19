@@ -49,8 +49,9 @@ let activity = getRandom()
 
 const BrainBreakScreen = ({navigation, route}) => {
 
-    const [ seconds, setSeconds ] = useState(60)
+    const [ seconds, setSeconds ] = useState(5)
     const [ isActivitySet, setIsActivitySet ] = useState(false)
+    const [ isTimerDone, setTimerDone ] = useState(false)
 
     if (!isActivitySet) {
       setIsActivitySet(true)
@@ -58,12 +59,12 @@ const BrainBreakScreen = ({navigation, route}) => {
     }
 
     function callback() {
-      if (seconds == 0) {
-        return
+      if (!isTimerDone) {
+        setSeconds(seconds - 1)
       }
-      setSeconds(seconds - 1)
       if (seconds == 0) {
         Alert.alert("Brain break over!", "Hopefully you feel more relaxed.")
+        setTimerDone(true)
         return
       }
     }
