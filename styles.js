@@ -11,6 +11,17 @@ const styles = StyleSheet.create({
         alignItems:'center',
         justifyContent:'center'
     },
+    breakText: {
+        textAlign: 'center',
+        marginTop: 15,
+        fontSize: 50,
+        fontWeight: "bold"
+    },
+    breakImage: {
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        marginTop: 15,
+    },
     button: {
         marginRight:40,
         marginLeft:40,
@@ -29,13 +40,15 @@ const styles = StyleSheet.create({
     },
     image: {
         resizemode: 'contain',
+        borderStyle: "solid",
+        borderColor: "black",
+        borderWidth: 5,
         height: 350,
         width: 350
     },
     background: {
         height: '100%',
         width: '100%',
-        //flex: 1,
     }
 })
 

@@ -51,7 +51,7 @@ const BrainBreakScreen = ({navigation, route}) => {
         <ImageBackground source={riverImage} resizeMode="stretch" style={styles.background}>
           <Text>{random["activity"]}</Text>
           <Image 
-            style={styles.image}
+            style={styles.breakImage}
             source={random["image"]}/>
         </ImageBackground>
       </View>
