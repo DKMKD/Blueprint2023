@@ -35,6 +35,19 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: '#fff'
     },
+    breakTimer: {
+        textAlign: 'center',
+        padding: 5,
+        marginTop: 25,
+        marginLeft: 125,
+        marginRight: 125,
+        backgroundColor: '#FFF',
+        fontSize: 20,
+        fontWeight: "bold",
+        borderRadius: 10,
+        borderWidth: 2,
+        borderColor: '#999'
+    },
     button: {
         marginRight:40,
         marginLeft:40,

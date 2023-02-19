@@ -68,7 +68,7 @@ const BrainBreakScreen = ({navigation, route}) => {
           <Image 
             style={styles.breakImage}
             source={activity.image}/>
-          <Text>{formatNumber(Math.floor(seconds / 60))}:{formatNumber(seconds % 60)} remaining</Text>
+          <Text style={styles.breakTimer}>{formatNumber(Math.floor(seconds / 60))}:{formatNumber(seconds % 60)} remaining</Text>
         </ImageBackground>
       </View>
     )
