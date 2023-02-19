@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Text, View, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { styles } from './styles' 
+import BrainBreakScreen from './BrainBreakScreen';
+import ScheduleScreen from './ScheduleScreen'
 
 const Stack = createNativeStackNavigator()
 
@@ -47,18 +49,6 @@ const HomeScreen = ({navigation, route}) => {
       }}
       />
     </View>
-  )
-}
-
-const ScheduleScreen = ({navigation, route}) => {
-  return (
-    <Text>Schedule Screen</Text>
-  )
-}
-
-const BrainBreakScreen = ({navigation, route}) => {
-  return (
-    <Text>Brain Break Screen</Text>
   )
 }
 
