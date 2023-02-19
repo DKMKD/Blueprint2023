@@ -1,23 +1,13 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import { Text, View, Pressable, ImageBackground } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import BrainBreakScreen from './BrainBreakScreen';
 import ScheduleScreen from './ScheduleScreen'
-import * as Notifications from 'expo-notifications'
-import * as Device from 'expo-device'
 import { styles } from './styles'
 import butterflyImage from './assets/butterflies.jpg'
 
 const Stack = createNativeStackNavigator()
-
-Notifications.setNotificationHandler({
-  handleNotification: async () => ({
-    shouldShowAlert: true,
-    shouldPlaySound: false,
-    shouldSetBadge: false,
-  }),
-})
 
 const App = () => {
   

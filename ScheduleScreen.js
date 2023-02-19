@@ -1,8 +1,18 @@
-import React, { useState } from "react"
-import {Pressable, View, Text} from "react-native"
+import React, { useState, useRef, useEffect } from "react"
+import {Pressable, View, Text, Alert, ImageBackground} from "react-native"
 import DateTimePicker from '@react-native-community/datetimepicker';
 import {styles} from './styles'
 import treeImage from './assets/trees.jpg'
+import * as Notifications from 'expo-notifications'
+import * as Device from 'expo-device'
+
+Notifications.setNotificationHandler({
+    handleNotification: async () => ({
+      shouldShowAlert: true,
+      shouldPlaySound: false,
+      shouldSetBadge: false,
+}),
+})
 
 const ScheduleScreen = ({navigation, route}) => {
     const [pushNotificationToken, setPushNotificationToken] = useState('')
@@ -12,8 +22,6 @@ const ScheduleScreen = ({navigation, route}) => {
     useEffect(() => {
       registerForPushNotificationsAsync().then(token => setPushNotificationToken(token))
       notificationListener.current = Notifications.addNotificationReceivedListener(notificationListener => {
-        //setNotifying(notificationListener)
-        console.log('received')
       })
   
       responseListener.current = Notifications.addNotificationResponseReceivedListener(response => console.log(response))
@@ -33,14 +41,20 @@ const ScheduleScreen = ({navigation, route}) => {
             mode="datetime"
             display="spinner"
             value={date}
-            onChange={(event, date) => {
-              setDate(date)
+            onChange={(event, d) => {
+                if (d.getTime() < Date.now()) {
+                    Alert.alert("Sorry!", "You cannot set the date in the past.")
+                    setDate(new Date())
+                    return
+                }
+                setDate(d)
             }}
           />
           <Pressable 
           style={styles.button}
           onPress={async () => {
-              await schedulePushNotification('[Take 5]', "It's time to take a brain break.")
+                Alert.alert("We will notify you when it's time to take a break.")
+              await schedulePushNotification('[Take 5]', "It's time to take a brain break.", ~~((date.getTime() - Date.now()) / 1000))
           }}
           >
             <Text style={styles.buttonText}>Schedule</Text>
