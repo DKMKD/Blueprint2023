@@ -1,33 +1,65 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { NativeRouter } from 'react-router-native';
-import { StyleSheet, Text, View, Pressable } from 'react-native';
+import { Text, View, Button } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { styles } from './styles' 
 
-const onPressFirstButton = () => {
-  console.log("Button pressed")
-}
+const Stack = createNativeStackNavigator()
 
-export default function App() {
-
+const App = () => {
   return (
-    <NativeRouter>
-      <View style={styles.container}>
-        <Text>Open up App.js to on your app!</Text>
-        <Pressable onPress={onPressFirstButton}>
-          <Text>This is a button (needs to be styled because it currently looks like text) </Text>
-        </Pressable>
-        <StatusBar style="auto" />
-      </View>
-    </NativeRouter>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{title: 'Take 5'}} 
+        />
+        <Stack.Screen
+          name="Schedule"
+          component={ScheduleScreen}
+          options={{title: 'Schedule'}} 
+        />
+        <Stack.Screen
+          name="BrainBreak"
+          component={BrainBreakScreen}
+          options={{title: 'Brain Break'}} 
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
     
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const HomeScreen = ({navigation, route}) => {
+  return (
+    <View style={styles.container}>
+      <Button
+      title="Go to Schedule Screen"
+      onPress={() => {
+        navigation.navigate('Schedule')
+      }}
+      />
+      <Button
+      title="Go to Brain Break Screen"
+      onPress={() => {
+        navigation.navigate('BrainBreak')
+      }}
+      />
+    </View>
+  )
+}
+
+const ScheduleScreen = ({navigation, route}) => {
+  return (
+    <Text>Schedule Screen</Text>
+  )
+}
+
+const BrainBreakScreen = ({navigation, route}) => {
+  return (
+    <Text>Brain Break Screen</Text>
+  )
+}
+
+export default App;
