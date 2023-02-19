@@ -47,7 +47,7 @@ const BrainBreakScreen = ({navigation, route}) => {
     return (
       <View>
         <Text>{random["activity"]}</Text>
-        <Image source={random["image"]}/>
+        <Image style={styles.image} source={random["image"]}/>
       </View>
     )
   }

@@ -7,6 +7,10 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems:'center',
         justifyContent:'center'
+    },
+    image: {
+        width: 2,
+        height: 2
     }
 })
 
