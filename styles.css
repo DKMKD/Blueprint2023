@@ -1,0 +1,13 @@
+.container {
+    flex: 1;
+    padding: 24;
+    background-color: '#fff';
+    align-items:'center';
+    justify-content:'center';
+}
+.image {
+    display: block;
+    height: 350;
+    width: 350;
+    margin: auto;
+}

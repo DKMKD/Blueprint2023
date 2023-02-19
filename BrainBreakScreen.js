@@ -1,5 +1,6 @@
 import React from 'react'
 import { Text, View, Image } from 'react-native'
+import "./styles.css";
 import journalImage from './assets/breathing.jpg';
 import meditateImage from './assets/meditation.jpg'
 import drawingImage from './assets/painting.jpg'
@@ -47,7 +48,9 @@ const BrainBreakScreen = ({navigation, route}) => {
     return (
       <View>
         <Text>{random["activity"]}</Text>
-        <Image source={random["image"]}/>
+        <Image 
+          style={styles.image}
+          source={random["image"]}/>
       </View>
     )
   }

@@ -7,6 +7,13 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems:'center',
         justifyContent:'center'
+    },
+    image: {
+        display: block,
+        margin: auto,
+        resizemode: 'contain',
+        height: 350,
+        width: 350
     }
 })
 
