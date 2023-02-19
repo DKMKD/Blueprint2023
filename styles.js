@@ -13,15 +13,26 @@ const styles = StyleSheet.create({
         alignItems:'center',
         justifyContent:'center'
     },
-    image: {
+    breakText: {
+        textAlign: 'center',
+        marginTop: 15,
+        fontSize: 50,
+        fontWeight: "bold"
+    },
+    breakImage: {
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        marginTop: 15,
         resizemode: 'contain',
+        borderStyle: "solid",
+        borderColor: "black",
+        borderWidth: 5,
         height: 350,
         width: 350
     },
     background: {
         height: '100%',
         width: '100%',
-        //flex: 1,
     }
 })
 

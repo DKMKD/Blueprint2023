@@ -10,7 +10,7 @@ import walkingImage from './assets/walking.jpg'
 import fruitImage from './assets/peaches.jpg'
 import stretchingImage from './assets/stretch.jpg'
 import phoneImage from './assets/phone.jpg'
-import styles from './styles'
+import { styles } from './styles'
 
 /*
 Brain breaks!
@@ -47,9 +47,9 @@ const BrainBreakScreen = ({navigation, route}) => {
    const random = getRandom();
     return (
       <View>
-        <Text>{random["activity"]}</Text>
+        <Text style={styles.breakText}>{random["activity"]}</Text>
         <Image 
-          style={styles.image}
+          style={styles.breakImage}
           source={random["image"]}/>
       </View>
     )
