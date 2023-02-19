@@ -64,12 +64,12 @@ const styles = StyleSheet.create({
         width: '100%',
     },
     quote: {
-        padding: 5,
+        padding: 15,
         marginTop: 450,
         marginLeft: 5,
         marginRight: 5,
         backgroundColor: '#FFF',
-        fontSize: 35,
+        fontSize: 22,
         borderRadius: 10,
         borderWidth: 2,
         borderColor: '#999'
