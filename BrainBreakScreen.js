@@ -44,7 +44,7 @@ const getRandom = () => {
   return breaks[~~(Math.random() * breaks.length)]
 }
 
-const formatNumber = number => `0${number}`.slice(-2);
+const formatNumber = number => number <= 0 ? '00' : `0${number}`.slice(-2);
 let activity = getRandom()
 
 const BrainBreakScreen = ({navigation, route}) => {

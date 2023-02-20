@@ -16,7 +16,6 @@ Notifications.setNotificationHandler({
 
 const ScheduleScreen = ({navigation, route}) => {
     const [pushNotificationToken, setPushNotificationToken] = useState('')
-    const [isNotifying, setNotifying] = useState(false)
     const notificationListener = useRef()
     const responseListener = useRef()
     useEffect(() => {
